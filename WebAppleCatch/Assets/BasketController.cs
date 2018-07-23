@@ -8,6 +8,7 @@ public class BasketController : MonoBehaviour {
     public AudioClip bombSE;
     AudioSource aud;
     GameObject director;
+    public float appleCount = 0;
 
     private void Start()
     {
@@ -20,12 +21,14 @@ public class BasketController : MonoBehaviour {
 
         if (other.gameObject.tag == "Apple")
         {
-            this.director.GetComponent<GameDirector>().GetApple();
+            appleCount += 1;
+            this.director.GetComponent<GameDirector>().GetApple(appleCount);
             this.aud.PlayOneShot(this.appleSE);
             Debug.Log("アンドロイドじゃない");
         }
         else
         {
+            appleCount = 0;
             this.director.GetComponent<GameDirector>().GetBomb();
             this.aud.PlayOneShot(this.bombSE);
             Debug.Log("Bomb!");

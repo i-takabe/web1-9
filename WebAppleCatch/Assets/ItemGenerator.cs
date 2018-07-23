@@ -11,12 +11,13 @@ public class ItemGenerator : MonoBehaviour {
     float delta = 0;
     float speed = -0.03f;
     int ratio = 2;
-    
+
     public void SetParameter(float span, float speed, int ratio)
     {
         this.span = span;
         this.speed = speed;
         this.ratio = ratio;
+
     }
 
 	// Use this for initialization
